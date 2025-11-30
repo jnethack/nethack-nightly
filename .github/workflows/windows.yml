@@ -1,19 +1,15 @@
 name: build on windows
 
 on:
-  push:
-    branches: [jnh]
-  pull_request:
-    types: [synchronize, opened]
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: windows-2022
     steps:
-      - name: checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
-          submodules: true
+          repository: NetHack/NetHack
 
       - name: msvcsetup
         uses: ilammy/msvc-dev-cmd@v1

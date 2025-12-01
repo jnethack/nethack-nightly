@@ -16,7 +16,9 @@ jobs:
         uses: ilammy/msvc-dev-cmd@v1
 
       - name: nhsetup
-        run: sys/windows/nhsetup
+        run: |
+          cd sys\windows
+          .\nhsetup.bat
 
       - name: buildmain
         run: |

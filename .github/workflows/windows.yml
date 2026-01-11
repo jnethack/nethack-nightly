@@ -8,8 +8,11 @@ jobs:
     runs-on: windows-2022
     steps:
       - uses: actions/checkout@v5
+
+      - uses: actions/checkout@v5
         with:
           repository: NetHack/NetHack
+          path: nh
           submodules: true
 
       - name: msvcsetup
@@ -17,12 +20,12 @@ jobs:
 
       - name: nhsetup
         run: |
-          cd sys\windows
+          cd nh\sys\windows
           .\nhsetup.bat
 
       - name: buildmain
         run: |
-          cd src
+          cd nh\src
           nmake package
 
       - name: tag
@@ -40,4 +43,4 @@ jobs:
           replacesArtifacts: true
           prerelease: true
           token: ${{ secrets.GITHUB_TOKEN }}
-          artifacts: package/nethack-370-win-x64.zip
+          artifacts: nh/package/nethack-370-win-x64.zip

@@ -36,10 +36,7 @@ jobs:
       - name: release
         uses: ncipollo/release-action@v1
         with:
-          name: "latest"
           allowUpdates: true
           tag: latest
           replacesArtifacts: true
-          prerelease: true
-          token: ${{ secrets.GITHUB_TOKEN }}
           artifacts: nh/package/nethack-370-win-x64.zip

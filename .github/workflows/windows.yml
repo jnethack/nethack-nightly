@@ -9,16 +9,16 @@ jobs:
   build:
     runs-on: windows-2022
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           repository: NetHack/NetHack
           path: nh
           submodules: true
 
       - name: msvcsetup
-        uses: ilammy/msvc-dev-cmd@v1
+        uses: TheMrMilchmann/setup-msvc-dev@v4
 
       - name: nhsetup
         run: |
@@ -39,4 +39,4 @@ jobs:
           allowUpdates: true
           tag: latest
           replacesArtifacts: true
-          artifacts: nh/package/nethack-370-win-x64.zip
+          artifacts: nh/package/nethack-500-win-x64.zip

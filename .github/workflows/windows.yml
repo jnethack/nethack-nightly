@@ -19,6 +19,8 @@ jobs:
 
       - name: msvcsetup
         uses: TheMrMilchmann/setup-msvc-dev@v4
+        with:
+          arch: x64
 
       - name: nhsetup
         run: |
